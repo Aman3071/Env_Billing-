@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="dashboard-container">
+  <h1>Dashboard</h1>
+
+  <div class="dashboard-cards">
+    <div class="dashboard-card">
+      <h2>Total Invoices</h2>
+      <p>{{ total_invoices }}</p>
+    </div>
+
+    <div class="dashboard-card">
+      <h2>Paid Invoices</h2>
+      <p>{{ paid_invoices }}</p>
+    </div>
+
+    <div class="dashboard-card">
+      <h2>Pending Invoices</h2>
+      <p>{{ pending_invoices }}</p>
+    </div>
+
+    <div class="dashboard-card">
+      <h2>Total Amount</h2>
+      <p>₹{{ total_amount }}</p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

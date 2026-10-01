@@ -1,0 +1,929 @@
+/* ================================
+   Global
+================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+/* ================================
+   Navbar
+================================ */
+
+nav {
+  background-color: #1f2937;
+  padding: 18px 15px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+nav a:hover {
+  color: #60a5fa;
+}
+
+/* ================================
+   Logout Button
+================================ */
+
+.logout-form {
+  display: inline-flex;
+  align-items: center;
+
+  margin: 0;
+  padding: 0;
+}
+
+.logout-btn {
+  display: inline-block;
+
+  background: none;
+  border: none;
+
+  color: white;
+
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+
+  text-decoration: none;
+
+  padding: 0;
+  margin: 0;
+
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  color: #60a5fa;
+}
+
+/* ================================
+   Invoice Container
+================================ */
+
+.invoice-container {
+  width: 90%;
+  max-width: 1200px;
+
+  margin: 60px auto;
+
+  min-height: 70vh;
+}
+
+/* ================================
+   Invoice Title
+================================ */
+
+.invoice-container h1 {
+  font-size: 42px;
+
+  text-align: center;
+
+  color: #111827;
+
+  margin-bottom: 40px;
+}
+
+/* ================================
+   Invoice Table
+================================ */
+
+.invoice-table {
+  width: 100%;
+
+  background-color: white;
+
+  border-collapse: collapse;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Table Header */
+
+.invoice-table thead {
+  background-color: #1f2937;
+}
+
+.invoice-table th {
+  color: white;
+
+  padding: 18px 20px;
+
+  text-align: left;
+
+  font-size: 16px;
+}
+
+/* Table Data */
+
+.invoice-table td {
+  padding: 18px 20px;
+
+  color: #374151;
+
+  font-size: 15px;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Row Hover */
+
+.invoice-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+/* Last Row */
+
+.invoice-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ================================
+   Status
+================================ */
+
+.status {
+  display: inline-block;
+
+  padding: 7px 14px;
+
+  border-radius: 20px;
+
+  background-color: #dbeafe;
+
+  color: #2563eb;
+
+  font-size: 13px;
+
+  font-weight: bold;
+}
+
+/* ================================
+   No Invoices
+================================ */
+
+.no-invoices {
+  padding: 40px;
+
+  text-align: center;
+
+  color: #6b7280;
+
+  font-size: 18px;
+}
+
+/* ================================
+   Footer
+================================ */
+
+footer {
+  background-color: #1f2937;
+
+  color: white;
+
+  text-align: center;
+
+  padding: 20px;
+
+  margin-top: 40px;
+}
+
+/* ================================
+   Responsive - Invoice
+================================ */
+
+@media (max-width: 768px) {
+  nav {
+    padding: 18px 25px;
+  }
+
+  .invoice-container {
+    width: 95%;
+
+    overflow-x: auto;
+  }
+
+  .invoice-table {
+    min-width: 750px;
+  }
+
+  .invoice-container h1 {
+    font-size: 34px;
+  }
+}
+
+/* ================================
+   Customer
+================================ */
+
+.customer-container {
+  width: 90%;
+  max-width: 1200px;
+
+  margin: 60px auto;
+
+  min-height: 70vh;
+}
+
+/* Customer Heading */
+
+.customer-container h1 {
+  font-size: 42px;
+
+  text-align: center;
+
+  color: #111827;
+
+  margin-bottom: 40px;
+}
+
+/* Customer Cards */
+
+.customer-cards {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 25px;
+
+  flex-wrap: wrap;
+}
+
+/* Individual Card */
+
+.customer-card {
+  width: 280px;
+
+  background-color: white;
+
+  padding: 30px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+  transition: 0.3s;
+}
+
+/* Card Hover */
+
+.customer-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Customer Name */
+
+.customer-card h2 {
+  color: #111827;
+
+  font-size: 24px;
+
+  margin-bottom: 20px;
+}
+
+/* Customer Details */
+
+.customer-card p {
+  color: #6b7280;
+
+  font-size: 16px;
+
+  margin-bottom: 15px;
+
+  line-height: 1.5;
+}
+
+.customer-card strong {
+  color: #374151;
+}
+
+/* Invoice Type */
+
+.invoice-type {
+  display: inline-block;
+
+  margin-top: 10px;
+
+  padding: 7px 14px;
+
+  border-radius: 20px;
+
+  font-size: 13px;
+
+  font-weight: bold;
+}
+
+/* Large Invoice */
+
+.large-invoice {
+  background-color: #dbeafe;
+
+  color: #2563eb;
+}
+
+/* Regular Invoice */
+
+.regular-invoice {
+  background-color: #f3f4f6;
+
+  color: #6b7280;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .customer-container {
+    width: 95%;
+  }
+
+  .customer-container h1 {
+    font-size: 34px;
+  }
+
+  .customer-card {
+    width: 100%;
+
+    max-width: 350px;
+  }
+}
+
+/* Customer Amount */
+
+.customer-amount {
+  color: #60a5fa;
+
+  font-weight: bold;
+
+  font-size: 18px;
+}
+
+/* ================================
+   Dashboard
+================================ */
+
+.dashboard-container {
+  width: 90%;
+
+  max-width: 1200px;
+
+  margin: 60px auto;
+
+  min-height: 70vh;
+}
+
+/* Dashboard Heading */
+
+.dashboard-container h1 {
+  font-size: 42px;
+
+  text-align: center;
+
+  color: #111827;
+
+  margin-bottom: 40px;
+}
+
+/* Dashboard Cards */
+
+.dashboard-cards {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 25px;
+
+  flex-wrap: wrap;
+}
+
+/* Individual Card */
+
+.dashboard-card {
+  width: 250px;
+
+  background-color: white;
+
+  padding: 30px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+  text-align: center;
+
+  transition: 0.3s;
+}
+
+/* Hover */
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Heading */
+
+.dashboard-card h2 {
+  color: #374151;
+
+  font-size: 20px;
+
+  margin-bottom: 15px;
+}
+
+/* Card Value */
+
+.dashboard-card p {
+  color: #2563eb;
+
+  font-size: 32px;
+
+  font-weight: bold;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    width: 95%;
+  }
+
+  .dashboard-container h1 {
+    font-size: 34px;
+  }
+
+  .dashboard-card {
+    width: 100%;
+
+    max-width: 350px;
+  }
+}
+
+/* ================================
+   Contact
+================================ */
+
+.contact-container {
+  width: 90%;
+
+  max-width: 1000px;
+
+  margin: 60px auto;
+
+  min-height: 70vh;
+}
+
+/* Contact Heading */
+
+.contact-container h1 {
+  font-size: 42px;
+
+  text-align: center;
+
+  color: #111827;
+
+  margin-bottom: 40px;
+}
+
+/* Contact Card */
+
+.contact-card {
+  width: 100%;
+
+  max-width: 600px;
+
+  margin: auto;
+
+  background-color: white;
+
+  padding: 35px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Card Heading */
+
+.contact-card h2 {
+  color: #111827;
+
+  font-size: 26px;
+
+  margin-bottom: 20px;
+}
+
+/* Contact Details */
+
+.contact-card p {
+  color: #6b7280;
+
+  font-size: 16px;
+
+  line-height: 1.6;
+
+  margin-bottom: 15px;
+}
+
+.contact-card strong {
+  color: #374151;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .contact-container {
+    width: 95%;
+  }
+
+  .contact-container h1 {
+    font-size: 34px;
+  }
+
+  .contact-card {
+    padding: 25px;
+  }
+}
+
+/* ================================
+   About
+================================ */
+
+.about-container {
+  width: 90%;
+
+  max-width: 1000px;
+
+  margin: 60px auto;
+
+  min-height: 70vh;
+}
+
+/* About Heading */
+
+.about-container h1 {
+  font-size: 42px;
+
+  text-align: center;
+
+  color: #111827;
+
+  margin-bottom: 40px;
+}
+
+/* About Card */
+
+.about-card {
+  max-width: 800px;
+
+  margin: auto;
+
+  background-color: white;
+
+  padding: 35px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Card Heading */
+
+.about-card h2 {
+  color: #111827;
+
+  font-size: 26px;
+
+  margin-bottom: 20px;
+}
+
+/* Paragraph */
+
+.about-card p {
+  color: #6b7280;
+
+  font-size: 16px;
+
+  line-height: 1.7;
+
+  margin-bottom: 15px;
+}
+
+/* Features Heading */
+
+.about-card h3 {
+  color: #374151;
+
+  font-size: 21px;
+
+  margin-top: 25px;
+
+  margin-bottom: 15px;
+}
+
+/* Features List */
+
+.about-card ul {
+  padding-left: 20px;
+}
+
+.about-card li {
+  color: #6b7280;
+
+  font-size: 16px;
+
+  margin-bottom: 10px;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .about-container {
+    width: 95%;
+  }
+
+  .about-container h1 {
+    font-size: 34px;
+  }
+
+  .about-card {
+    padding: 25px;
+  }
+}
+
+/* ================================
+   Add Invoice
+================================ */
+
+.add-invoice-container {
+  width: 90%;
+
+  max-width: 900px;
+
+  margin: 60px auto;
+
+  min-height: 70vh;
+}
+
+.add-invoice-card {
+  background-color: white;
+
+  padding: 40px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.add-invoice-card h1 {
+  text-align: center;
+
+  font-size: 36px;
+
+  color: #111827;
+
+  margin-bottom: 10px;
+}
+
+.form-subtitle {
+  text-align: center;
+
+  color: #6b7280;
+
+  margin-bottom: 35px;
+}
+
+.invoice-form p {
+  margin-bottom: 20px;
+}
+
+.invoice-form label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #374151;
+
+  font-weight: 600;
+}
+
+.invoice-form input,
+.invoice-form select,
+.invoice-form textarea {
+  width: 100%;
+
+  padding: 12px 14px;
+
+  border: 1px solid #d1d5db;
+
+  border-radius: 8px;
+
+  font-size: 15px;
+
+  box-sizing: border-box;
+}
+
+.invoice-form textarea {
+  min-height: 100px;
+
+  resize: vertical;
+}
+
+.invoice-form input[type="checkbox"] {
+  width: auto;
+}
+
+/* Save Invoice */
+
+.save-invoice-btn {
+  width: 100%;
+
+  padding: 14px;
+
+  margin-top: 10px;
+
+  background-color: #2563eb;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 8px;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+/* ================================
+   Invoice Header
+================================ */
+
+.invoice-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 25px;
+}
+
+.invoice-header h1 {
+  margin: 0;
+}
+
+/* Add Invoice Button */
+
+.add-invoice-btn {
+  display: inline-block;
+
+  padding: 10px 18px;
+
+  background-color: #2563eb;
+
+  color: white;
+
+  text-decoration: none;
+
+  border-radius: 8px;
+
+  font-size: 15px;
+
+  font-weight: 600;
+}
+
+.add-invoice-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* ================================
+   Action Buttons
+================================ */
+
+.action-buttons {
+  white-space: nowrap;
+}
+
+/* Edit Button */
+
+.edit-btn {
+  display: inline-block;
+
+  padding: 7px 12px;
+
+  background-color: #2563eb;
+
+  color: white;
+
+  text-decoration: none;
+
+  border-radius: 6px;
+
+  margin-right: 5px;
+
+  font-size: 14px;
+}
+
+.edit-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* Delete Button */
+
+.delete-btn {
+  display: inline-block;
+
+  padding: 7px 12px;
+
+  background-color: #dc2626;
+
+  color: white;
+
+  text-decoration: none;
+
+  border-radius: 6px;
+
+  font-size: 14px;
+}
+
+.delete-btn:hover {
+  background-color: #b91c1c;
+}
+
+/* =================================
+   FINAL LOGOUT NAVBAR FIX
+================================= */
+
+nav .logout-form {
+  display: flex !important;
+  align-items: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+nav .logout-btn {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+
+  display: inline !important;
+
+  background: transparent !important;
+  background-color: transparent !important;
+
+  border: 0 !important;
+  outline: none !important;
+
+  color: white !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  font-family: Arial, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: normal !important;
+  line-height: normal !important;
+
+  text-decoration: none !important;
+
+  cursor: pointer !important;
+}
+
+nav .logout-btn:hover {
+  color: #60a5fa !important;
+  background: transparent !important;
+}
+
+.navbar-username {
+  color: white !important;
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 5px;
+}

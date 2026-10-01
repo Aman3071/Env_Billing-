@@ -1,0 +1,50 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="customer-container">
+  <h1>Customer Details</h1>
+
+  <div class="customer-cards">
+    {% for invoice in invoices %}
+
+    <div class="customer-card">
+      <h2>{{ invoice.customer_name }}</h2>
+
+      <p>
+        <strong>Email:</strong>
+        {{ invoice.customer_email }}
+      </p>
+
+      <p>
+        <strong>Phone:</strong>
+        {{ invoice.customer_phone }}
+      </p>
+
+      <p>
+        <strong>Invoice Number:</strong>
+        {{ invoice.invoice_number }}
+      </p>
+
+      <p>
+        <strong>Amount:</strong>
+        <span class="customer-amount"> ₹{{ invoice.amount }} </span>
+      </p>
+
+      {% if invoice.is_paid %}
+      <span class="invoice-type large-invoice"> Paid </span>
+      {% else %}
+      <span class="invoice-type regular-invoice"> Unpaid </span>
+      {% endif %}
+    </div>
+
+    {% empty %}
+
+    <div class="customer-card">
+      <h2>No Customers Found</h2>
+      <p>There are currently no customers to display.</p>
+    </div>
+
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

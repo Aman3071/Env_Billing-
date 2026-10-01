@@ -1,0 +1,73 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="invoice-container">
+  <div class="invoice-header">
+    <h1>Invoice List</h1>
+
+    <a href="{% url 'add_invoice' %}" class="add-invoice-btn">
+      + Add New Invoice
+    </a>
+  </div>
+
+  <table class="invoice-table">
+    <thead>
+      <tr>
+        <th>Invoice #</th>
+        <th>Customer</th>
+        <th>Date</th>
+        <th>Due Date</th>
+        <th>Amount</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% if invoices %} {% for invoice in invoices %}
+
+      <tr>
+        <td>{{ invoice.invoice_number }}</td>
+
+        <td>{{ invoice.customer_name }}</td>
+
+        <td>{{ invoice.invoice_date }}</td>
+
+        <td>{{ invoice.due_date }}</td>
+
+        <td>₹{{ invoice.amount }}</td>
+
+        <td>
+          {% if invoice.is_paid %}
+
+          <span class="status paid"> Paid </span>
+
+          {% else %}
+
+          <span class="status unpaid"> Unpaid </span>
+
+          {% endif %}
+        </td>
+
+        <td class="action-buttons">
+          <a href="{% url 'edit_invoice' invoice.id %}" class="edit-btn">
+            Edit
+          </a>
+
+          <a href="{% url 'delete_invoice' invoice.id %}" class="delete-btn">
+            Delete
+          </a>
+        </td>
+      </tr>
+
+      {% endfor %} {% else %}
+
+      <tr>
+        <td colspan="7" class="no-invoices">No invoices found.</td>
+      </tr>
+
+      {% endif %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}
